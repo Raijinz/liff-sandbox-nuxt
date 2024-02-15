@@ -20,7 +20,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
     await liff.init({
         liffId,
-        mock: true,
+        mock: import.meta.dev,
     })
 
     if (!liff.isInClient()) {
