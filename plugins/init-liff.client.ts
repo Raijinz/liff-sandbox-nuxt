@@ -20,10 +20,11 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
     await liff.init({
         liffId,
+        withLoginOnExternalBrowser: !import.meta.dev,
         mock: import.meta.dev,
     })
 
-    if (!liff.isInClient()) {
+    if (import.meta.dev && !liff.isInClient()) {
         liff.login()
     }
 })
